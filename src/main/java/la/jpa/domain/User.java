@@ -2,56 +2,19 @@ package la.jpa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import la.jpa.model.UserModel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
 @Entity
-public class User extends BaseEntity {
+public class User {
 
-    private static final long serialVersionUID = 1L;
+	@Id
+	private String id;
 
-    @Column(nullable = true)
-    private String name;
+	@Column
+	private String name;
 
-    @Column(nullable = false)
-    private UserType type;
+	@ManyToOne
+	private Org org;
 
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
-
-    public enum UserType {
-        USER("user"), ADMIN("admin");
-        private String value;
-
-        private UserType(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return this.value;
-        }
-
-        public static UserType byValue(String val) {
-            for (UserType value : values()) {
-                if (value.value.equalsIgnoreCase(val)) {
-                    return value;
-                }
-            }
-            return null;
-        }
-    }
-
-    public User(UserModel model) {
-        //        this.email = model.getEmail();
-        this.type = model.getType();
-        //TODO PASSWORD ENCODING
-        this.password = model.getPassword();
-    }
 }

@@ -1,20 +1,19 @@
 package la.jpa.service;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import la.jpa.domain.User;
-import la.jpa.model.UserModel;
+import la.jpa.repository.UserRepository;
 
-public interface UserService {
+@Service
+public class UserService {
 
-    User createUser(UserModel model);
+	@Autowired
+	private UserRepository userRepository;
 
-    User updateUser(UserModel model);
-
-    void deleteUser(Long id);
-
-    User getUser(Long id);
-
-    List<User> getUsers();
+	public User getUser(String id) {
+		return userRepository.findOne(id);
+	}
 
 }
