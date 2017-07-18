@@ -1,4 +1,3 @@
 # jpa-test
 
-Run la.jpa.JpaTestMain Class
-Connect to localhost
+Run Class la.jpa.JpaTestMain And Connect to http://localhost
