@@ -3,7 +3,7 @@ package la.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestInfoVO {
+public class ApiInfoVO {
 	private String url = null;
 	private String httpMethod = null;
 	private List<String> paramList = new ArrayList<>();
