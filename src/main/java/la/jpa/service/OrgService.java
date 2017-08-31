@@ -24,7 +24,7 @@ public class OrgService {
 		return orgRepository.findOne(id);
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional
 	public Org addOrg(String name) {
 		Org org = new Org();
 		org.setName(name);

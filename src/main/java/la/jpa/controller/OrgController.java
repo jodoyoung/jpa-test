@@ -19,7 +19,12 @@ public class OrgController {
 	private OrgService orgService;
 
 	@RequestMapping(value= "/addorg", method= RequestMethod.GET)
-	public @ResponseBody Org org(String orgname) {
+	public @ResponseBody Org addorg(String orgname) {
 		return orgService.addOrg(orgname);
+	}
+
+	@RequestMapping(value= "/org", method= RequestMethod.GET)
+	public @ResponseBody Org org(String orgid) {
+		return orgService.getOrg(orgid);
 	}
 }

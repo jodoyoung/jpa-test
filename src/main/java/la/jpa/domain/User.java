@@ -1,5 +1,6 @@
 package la.jpa.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,10 +28,10 @@ public class User implements Comparable<User>{
 		return 0;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn
 //	@JsonManagedReference()
-//	@JsonIgnoreProperties("user")
+	@JsonIgnoreProperties("user")
 	private Org org;
 
 	public String getId() {

@@ -13,7 +13,7 @@ public class TestController {
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String home(Map<String, Object> model) throws Exception {
-		model.put("apiList", ApiGenerator.makeRequestInfoVO());
+		model.put("apiList", ApiGenerator.getApiInfoVOList());
 		return "test";
 	}
 }

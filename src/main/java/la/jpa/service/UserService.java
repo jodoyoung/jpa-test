@@ -1,14 +1,10 @@
 package la.jpa.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import la.jpa.domain.Org;
 import la.jpa.domain.User;
 import la.jpa.repository.OrgRepository;
@@ -39,7 +35,11 @@ public class UserService {
 	@Transactional()
 	public User modUser(String id, String name, String orgId) {
 		User user = userRepository.findOne(id);
-		user.setOrg(orgRepository.findOne(orgId));
+		Org org = new Org ();
+		org.setName("ppp");
+//		user.setOrg(orgRepository.findOne(orgId));
+		user.setOrg(org);
+		user.getOrg();
 		return user;
 	}
 

@@ -2,6 +2,7 @@ package la.jpa.domain;
 
 import java.util.SortedSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Org {
 
 	/*@JsonBackReference()
 	@JsonIgnore*/
-	@OneToMany(mappedBy = "org")
+	@OneToMany(mappedBy = "org", cascade = CascadeType.PERSIST)
 	@OrderBy("name ASC")
 	@JsonIgnoreProperties("org")
 	private SortedSet<User> user;
